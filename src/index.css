@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+.container {
+  @apply max-w-7xl mx-auto;
+}
+
+.article-content {
+  @apply text-[#1a1a1a] leading-[1.8] text-[17px] font-medium;
+}
+
+.article-content h2, .article-content h3 {
+  @apply relative;
+}
+
+.article-content h2 {
+  @apply text-3xl font-black text-[#111] mt-12 mb-6 tracking-tight leading-tight;
+}
+
+.article-content h3 {
+  @apply text-xl font-black text-[#111] mt-8 mb-4 tracking-tight leading-tight;
+}
+
+.article-content h2::after, .article-content h3::after {
+  content: '#';
+  @apply absolute -left-6 top-0 text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer font-bold;
+}
+
+.article-content p {
+  @apply mb-6;
+}
+
+.article-content ul {
+  @apply list-none space-y-3 mb-8;
+}
+
+.article-content ul li {
+  @apply relative pl-8 before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-2 before:h-2 before:bg-emerald-500 before:rounded-full;
+}
+
+.article-content ol {
+  @apply list-decimal pl-6 space-y-4 mb-8 font-bold text-[#111];
+}
+
+.article-content ol li::marker {
+  @apply text-emerald-600;
+}
+
+.article-content ol li p {
+  @apply font-medium text-[#1a1a1a] mb-0;
+}
+
+.article-content strong {
+  @apply font-black text-[#111];
+}
+
+.article-content hr {
+  @apply border-zinc-100 my-12;
+}
+
+.article-content a {
+  @apply text-emerald-600 underline decoration-emerald-200 underline-offset-4 hover:decoration-emerald-500 transition-all;
+}
