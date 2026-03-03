@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import { HealthDisclaimer } from '../components/HealthDisclaimer';
 import { FAQSection } from '../components/FAQSection';
 import { SEO } from '../components/SEO';
@@ -8,6 +9,7 @@ import { Language, translations } from '../constants';
 import { ArrowLeft, Utensils } from 'lucide-react';
 import { ArticleLayout, AdSlot } from '../components/Article/ArticleLayout';
 import { KeyTakeaways, StatsBlock, TableOfContents } from '../components/Article/ArticleComponents';
+import { getLocalizedSlug } from '../utils/slugMapping';
 
 // Mock content fetcher
 import { getDietContent } from '../content/diet';
@@ -22,28 +24,39 @@ const MarkdownComponents = {
   h3: ({ children, ...props }: any) => {
     const id = slugify(children.toString());
     return <h3 id={id} className="group" {...props}>{children}</h3>;
-  }
+  },
+  adslot: ({ id }: any) => <AdSlot id={id} />
 };
 
 export const DietDetail = () => {
-  const { lang = 'en', kcal } = useParams<{ lang: Language; kcal: string }>();
+  const { lang = 'en', kcal: slug } = useParams<{ lang: Language; kcal: string }>();
   const t = translations[lang as Language] || translations.en;
-  const content = getDietContent(lang as Language, kcal || '');
+  const content = getDietContent(lang as Language, slug || '');
+  const backText = t.common.backToDiet;
+  const backLink = `/${lang}/diet-plans`;
 
   if (!content) {
-    return <div className="container py-20 text-center">Content not found.</div>;
+    return (
+      <div className="container mx-auto px-4 py-20 text-center">
+        <h1 className="text-4xl font-black mb-4">404</h1>
+        <p className="text-zinc-500 mb-8">Diet plan not found.</p>
+        <Link to={backLink} className="text-emerald-600 font-bold flex items-center justify-center gap-2">
+          <ArrowLeft className="h-4 w-4" /> {backText}
+        </Link>
+      </div>
+    );
   }
 
   const tocItems = [
-    { id: 'overview', text: lang === 'en' ? 'Overview' : lang === 'es' ? 'Resumen' : 'Visão Geral' },
-    { id: 'meal-plan', text: lang === 'en' ? 'Meal Plan' : lang === 'es' ? 'Plan de Comidas' : 'Plano Alimentar' },
-    { id: 'faq', text: lang === 'en' ? 'FAQ' : lang === 'es' ? 'Preguntas Frecuentes' : 'Perguntas Frequentes' },
+    { id: 'overview', text: t.common.overview },
+    { id: 'meal-plan', text: t.common.mealPlan },
+    { id: 'faq', text: t.common.faqTitle },
   ];
 
   const stats = [
-    { label: lang === 'en' ? 'Protein' : lang === 'es' ? 'Proteína' : 'Proteína', value: `${content.macros.protein}g` },
-    { label: lang === 'en' ? 'Carbs' : lang === 'es' ? 'Carbohidratos' : 'Carboidratos', value: `${content.macros.carbs}g` },
-    { label: lang === 'en' ? 'Fats' : lang === 'es' ? 'Grasas' : 'Gorduras', value: `${content.macros.fats}g` },
+    { label: t.common.protein, value: `${content.macros.protein}g` },
+    { label: t.common.carbs, value: `${content.macros.carbs}g` },
+    { label: t.common.fats, value: `${content.macros.fats}g` },
   ];
 
   const takeaways = lang === 'en' ? [
@@ -90,21 +103,21 @@ export const DietDetail = () => {
         }}
         sidebar={{
           popularGuides: [
-            { title: lang === 'en' ? 'Best Supplements for Fat Loss' : lang === 'es' ? 'Mejores Suplementos para Perder Grasa' : 'Melhores Suplementos para Perda de Gordura', href: `/${lang}/supplements/fat-burners` },
-            { title: lang === 'en' ? 'Full Body Workout' : lang === 'es' ? 'Entrenamiento de Cuerpo Completo' : 'Treino de Corpo Inteiro', href: `/${lang}/workouts/full-body` },
-            { title: lang === 'en' ? 'Intermittent Fasting Guide' : lang === 'es' ? 'Guía de Ayuno Intermitente' : 'Guia de Jejum Intermitente', href: `/${lang}/blog/intermittent-fasting` },
+            { title: lang === 'en' ? 'Best Supplements for Fat Loss' : lang === 'es' ? 'Mejores Suplementos para Perder Grasa' : 'Melhores Suplementos para Perda de Gordura', href: `/${lang}/supplements/${getLocalizedSlug('supplements', lang as Language, 'fat-burners')}` },
+            { title: lang === 'en' ? 'Full Body Workout' : lang === 'es' ? 'Entrenamiento de Cuerpo Completo' : 'Treino de Corpo Inteiro', href: `/${lang}/workouts/${getLocalizedSlug('workouts', lang as Language, 'full-body')}` },
+            { title: lang === 'en' ? 'Intermittent Fasting Guide' : lang === 'es' ? 'Guía de Ayuno Intermitente' : 'Guia de Jejum Intermitente', href: `/${lang}/blog/2` },
           ]
         }}
       >
         <div id="overview">
           <div className="aspect-video rounded-3xl overflow-hidden mb-12 bg-zinc-100 shadow-xl shadow-emerald-500/5">
             <img 
-              src={content.heroImage} 
+              src={content.coverImage} 
               alt={content.title} 
               className="w-full h-full object-cover" 
               referrerPolicy="no-referrer" 
               onError={(e) => {
-                (e.target as HTMLImageElement).src = `https://picsum.photos/seed/diet-${kcal}/1200/800`;
+                (e.target as HTMLImageElement).src = `https://picsum.photos/seed/diet-${slug}/1200/800`;
               }}
             />
           </div>
@@ -116,7 +129,7 @@ export const DietDetail = () => {
           <KeyTakeaways items={takeaways} />
 
           <div className="article-content">
-            <Markdown components={MarkdownComponents}>{content.body}</Markdown>
+            <Markdown components={MarkdownComponents} rehypePlugins={[rehypeRaw]}>{content.body}</Markdown>
           </div>
         </div>
 
@@ -128,7 +141,7 @@ export const DietDetail = () => {
           <div className="my-12 bg-zinc-900 text-white p-8 md:p-12 rounded-[2.5rem] border border-white/5 shadow-2xl">
             <h2 className="text-3xl font-black uppercase italic tracking-tighter mb-8 flex items-center gap-3 !text-white">
               <Utensils className="h-8 w-8 text-emerald-400" />
-              {lang === 'en' ? 'Sample Daily Meal Plan' : lang === 'es' ? 'Ejemplo de Plan de Comidas' : 'Exemplo de Plano Alimentar'}
+              {t.common.sampleMealPlan}
             </h2>
             <div className="space-y-10">
               {content.meals.map((meal: any, idx: number) => (
@@ -149,7 +162,7 @@ export const DietDetail = () => {
           </div>
           
           <div className="article-content">
-            <Markdown components={MarkdownComponents}>{content.bodyPart2}</Markdown>
+            <Markdown components={MarkdownComponents} rehypePlugins={[rehypeRaw]}>{content.bodyPart2}</Markdown>
           </div>
         </div>
 

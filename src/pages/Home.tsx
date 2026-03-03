@@ -108,19 +108,19 @@ export const Home = () => {
             {[
               {
                 id: 1,
-                img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800",
+                coverImage: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800",
                 cat: { en: 'Training', es: 'Entrenamiento', br: 'Treinamento' },
                 title: { en: 'The Science of Muscle Growth: Hypertrophy Explained', es: 'La Ciencia del Crecimiento Muscular: Hipertrofia Explicada', br: 'A Ciência do Crescimento Muscular: Hipertrofia Explicada' }
               },
               {
                 id: 2,
-                img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800",
+                coverImage: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800",
                 cat: { en: 'Nutrition', es: 'Nutrición', br: 'Nutrição' },
                 title: { en: 'Optimal Protein Intake for Maximum Results', es: 'Ingesta Óptima de Proteínas para Resultados Máximos', br: 'Ingestão Ideal de Proteína para Resultados Máximos' }
               },
               {
                 id: 3,
-                img: "https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&q=80&w=800",
+                coverImage: "https://images.unsplash.com/photo-1546483875-ad9014c88eba?auto=format&fit=crop&q=80&w=800",
                 cat: { en: 'Supplements', es: 'Suplementos', br: 'Suplementos' },
                 title: { en: 'Top 5 Supplements for Strength and Recovery', es: 'Los 5 Mejores Suplementos para Fuerza y Recuperación', br: 'Top 5 Suplementos para Força e Recuperação' }
               }
@@ -128,7 +128,7 @@ export const Home = () => {
               <div key={article.id} className="group cursor-pointer">
                 <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-zinc-200">
                   <img 
-                    src={article.img} 
+                    src={article.coverImage} 
                     alt="Article" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"

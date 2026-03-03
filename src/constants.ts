@@ -30,8 +30,28 @@ export interface ContentStrings {
     emailCaptureTitle: string;
     emailCaptureDesc: string;
     emailCaptureCTA: string;
-    affiliateDisclosureTitle: string;
-    affiliateDisclosureDesc: string;
+    overview: string;
+    workoutPlan: string;
+    difficulty: string;
+    duration: string;
+    target: string;
+    level: string;
+    trainingSpecs: string;
+    equipmentNeeded: string;
+    primaryMuscles: string;
+    readyToTransform: string;
+    transformDesc: string;
+    enterEmail: string;
+    popularGuides: string;
+    minRead: string;
+    updatedOn: string;
+    protein: string;
+    carbs: string;
+    fats: string;
+    sampleMealPlan: string;
+    mealPlan: string;
+    products: string;
+    deepDive: string;
   };
   home: {
     heroTitle: string;
@@ -73,8 +93,28 @@ export const translations: Record<Language, ContentStrings> = {
       emailCaptureTitle: "Get the Ultimate Performance Guide",
       emailCaptureDesc: "Join 50,000+ athletes receiving our weekly science-backed training tips, diet plans, and exclusive supplement discounts.",
       emailCaptureCTA: "Join the Authority",
-      affiliateDisclosureTitle: "Affiliate Disclosure",
-      affiliateDisclosureDesc: "This guide contains affiliate links. If you purchase through these links, we may earn a small commission at no extra cost to you.",
+      overview: "Overview",
+      workoutPlan: "Workout Plan",
+      difficulty: "Difficulty",
+      duration: "Duration",
+      target: "Target",
+      level: "Level",
+      trainingSpecs: "Training Specifications",
+      equipmentNeeded: "Equipment Needed",
+      primaryMuscles: "Primary Muscles",
+      readyToTransform: "Ready to Transform Your Physique?",
+      transformDesc: "Get our free 12-week transformation guide and weekly science-based tips delivered to your inbox.",
+      enterEmail: "Enter your email",
+      popularGuides: "Popular Guides",
+      minRead: "min read",
+      updatedOn: "Updated on",
+      protein: "Protein",
+      carbs: "Carbs",
+      fats: "Fats",
+      sampleMealPlan: "Sample Daily Meal Plan",
+      mealPlan: "Meal Plan",
+      products: "Products",
+      deepDive: "Deep Dive",
     },
     home: {
       heroTitle: "Elevate Your Performance",
@@ -114,8 +154,28 @@ export const translations: Record<Language, ContentStrings> = {
       emailCaptureTitle: "Obtén la Guía Definitiva de Rendimiento",
       emailCaptureDesc: "Únete a más de 50,000 atletas que reciben nuestros consejos de entrenamiento semanales basados en la ciencia.",
       emailCaptureCTA: "Únete a la Autoridad",
-      affiliateDisclosureTitle: "Divulgación de Afiliados",
-      affiliateDisclosureDesc: "Esta guía contiene enlaces de afiliados. Si compra a través de estos enlaces, podemos ganar una pequeña comisión sin costo adicional para usted.",
+      overview: "Resumen",
+      workoutPlan: "Plan de Entrenamiento",
+      difficulty: "Dificultad",
+      duration: "Duración",
+      target: "Objetivo",
+      level: "Nivel",
+      trainingSpecs: "Especificaciones de Entrenamiento",
+      equipmentNeeded: "Equipo Necesario",
+      primaryMuscles: "Músculos Principales",
+      readyToTransform: "¿Listo para Transformar tu Físico?",
+      transformDesc: "Obtén nossa guia de transformação gratuita de 12 semanas e dicas semanais baseadas na ciência.",
+      enterEmail: "Introduce tu correo",
+      popularGuides: "Guías Populares",
+      minRead: "min de lectura",
+      updatedOn: "Actualizado el",
+      protein: "Proteína",
+      carbs: "Carbohidratos",
+      fats: "Grasas",
+      sampleMealPlan: "Ejemplo de Plan de Comidas",
+      mealPlan: "Plan de Comidas",
+      products: "Productos",
+      deepDive: "Análisis Profundo",
     },
     home: {
       heroTitle: "Eleva tu Rendimiento",
@@ -155,8 +215,28 @@ export const translations: Record<Language, ContentStrings> = {
       emailCaptureTitle: "Obtenha o Guia Definitivo de Performance",
       emailCaptureDesc: "Junte-se a mais de 50.000 atletas que recebem nossas dicas semanais de treinamento baseadas em ciência.",
       emailCaptureCTA: "Junte-se à Autoridade",
-      affiliateDisclosureTitle: "Divulgação de Afiliados",
-      affiliateDisclosureDesc: "Este guia contém links de afiliados. Se você comprar através desses links, podemos ganhar uma pequena comissão sem custo adicional para você.",
+      overview: "Visão Geral",
+      workoutPlan: "Plano de Treino",
+      difficulty: "Dificuldade",
+      duration: "Duração",
+      target: "Alvo",
+      level: "Nível",
+      trainingSpecs: "Especificações de Treino",
+      equipmentNeeded: "Equipamento Necessário",
+      primaryMuscles: "Músculos Principais",
+      readyToTransform: "Pronto para Transformar seu Físico?",
+      transformDesc: "Receba nosso guia de transformação gratuito de 12 semanas e dicas semanais baseadas em ciência.",
+      enterEmail: "Digite seu e-mail",
+      popularGuides: "Guias Populares",
+      minRead: "min de leitura",
+      updatedOn: "Atualizado em",
+      protein: "Proteína",
+      carbs: "Carboidratos",
+      fats: "Gorduras",
+      sampleMealPlan: "Exemplo de Plano Alimentar",
+      mealPlan: "Plano Alimentar",
+      products: "Produtos",
+      deepDive: "Análise Profunda",
     },
     home: {
       heroTitle: "Eleve seu Desempenho",

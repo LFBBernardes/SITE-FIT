@@ -8,29 +8,37 @@ export const Supplements = () => {
   const t = translations[lang as Language] || translations.en;
 
   const supplements = [
-    { id: 'whey-protein', 
+    { id: { en: 'whey-protein', es: 'proteina-de-suero', br: 'whey-protein' }, 
       name: { en: 'Whey Protein', es: 'Proteína de Suero', br: 'Whey Protein' }, 
       desc: { en: 'Fast-absorbing protein for muscle recovery.', es: 'Proteína de rápida absorción para la recuperación muscular.', br: 'Proteína de rápida absorção para recuperação muscular.' } 
     },
-    { id: 'creatine', 
+    { id: { en: 'creatine-monohydrate', es: 'creatina-monohidrato', br: 'creatina-monohidratada' }, 
       name: { en: 'Creatine Monohydrate', es: 'Creatina Monohidrato', br: 'Creatina Monohidratada' }, 
       desc: { en: 'The most researched supplement for strength and power.', es: 'El suplemento más investigado para fuerza y potencia.', br: 'O suplemento mais pesquisado para força e potência.' } 
     },
-    { id: 'bcaa', 
+    { id: { en: 'bcaa', es: 'bcaa', br: 'bcaa' }, 
       name: { en: 'BCAA', es: 'BCAA', br: 'BCAA' }, 
       desc: { en: 'Branched-chain amino acids for endurance.', es: 'Aminoácidos de cadena ramificada para la resistencia.', br: 'Aminoácidos de cadeia ramificada para resistência.' } 
     },
-    { id: 'pre-workout', 
+    { id: { en: 'pre-workout', es: 'pre-entreno', br: 'pre-treino' }, 
       name: { en: 'Pre-Workout', es: 'Pre-Entrenamiento', br: 'Pré-Treino' }, 
       desc: { en: 'Energy and focus for intense training sessions.', es: 'Energía y enfoque para sesiones de entrenamiento intensas.', br: 'Energia e foco para sessões de treino intensas.' } 
     },
-    { id: 'multivitamins', 
+    { id: { en: 'multivitamins', es: 'multivitaminicos', br: 'multivitaminicos' }, 
       name: { en: 'Multivitamins', es: 'Multivitamínicos', br: 'Multivitamínicos' }, 
       desc: { en: 'Essential micronutrients for overall health.', es: 'Micronutrientes esenciales para la salud general.', br: 'Micronutrientes essenciais para a saúde geral.' } 
     },
-    { id: 'omega-3', 
+    { id: { en: 'omega-3', es: 'omega-3', br: 'omega-3' }, 
       name: { en: 'Omega 3', es: 'Omega 3', br: 'Ômega 3' }, 
       desc: { en: 'Healthy fats for heart and joint health.', es: 'Grasas saludables para la salud del corazón y las articulaciones.', br: 'Gorduras saudáveis para a saúde do coração e das articulações.' } 
+    },
+    { id: { en: 'fat-burners', es: 'quemagrasas', br: 'termogenicos' }, 
+      name: { en: 'Fat Burners', es: 'Quemagrasas', br: 'Termogênicos' }, 
+      desc: { en: 'Metabolism boosters for fat loss support.', es: 'Aceleradores del metabolismo para apoyar la pérdida de grasa.', br: 'Aceleradores de metabolismo para auxiliar na perda de gordura.' } 
+    },
+    { id: { en: 'collagen', es: 'colageno', br: 'colageno' }, 
+      name: { en: 'Collagen', es: 'Colágeno', br: 'Colágeno' }, 
+      desc: { en: 'Protein for joint, skin, and connective tissue health.', es: 'Proteína para la salud de las articulaciones, la piel y los tejidos conectivos.', br: 'Proteína para a saúde das articulações, pele e tecidos conectivos.' } 
     },
   ];
 
@@ -46,10 +54,10 @@ export const Supplements = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {supplements.map((supp) => (
+        {supplements.map((supp, index) => (
           <Link 
-            key={supp.id} 
-            to={`/${lang}/supplements/${supp.id}`}
+            key={index} 
+            to={`/${lang}/supplements/${supp.id[lang as Language] || supp.id.en}`}
             className="group bg-zinc-50 border border-zinc-100 p-8 rounded-3xl hover:bg-white hover:border-black transition-all"
           >
             <div className="flex items-start justify-between mb-4">

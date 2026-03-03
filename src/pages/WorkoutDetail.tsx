@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import { HealthDisclaimer } from '../components/HealthDisclaimer';
 import { FAQSection } from '../components/FAQSection';
 import { SEO } from '../components/SEO';
@@ -8,6 +9,7 @@ import { Language, translations } from '../constants';
 import { ArrowLeft, ChevronRight, Clock, Target, Zap, Dumbbell, Award } from 'lucide-react';
 import { ArticleLayout, AdSlot } from '../components/Article/ArticleLayout';
 import { KeyTakeaways, StatsBlock, TableOfContents } from '../components/Article/ArticleComponents';
+import { getLocalizedSlug } from '../utils/slugMapping';
 
 // This would ideally be fetched from a CMS or JSON files
 import { getWorkoutContent } from '../content/workouts';
@@ -21,29 +23,40 @@ const MarkdownComponents = {
   h3: ({ children, ...props }: any) => {
     const id = slugify(children.toString());
     return <h3 id={id} className="group scroll-mt-24" {...props}>{children}</h3>;
-  }
+  },
+  adslot: ({ id }: any) => <AdSlot id={id} />
 };
 
 export const WorkoutDetail = () => {
   const { lang = 'en', id } = useParams<{ lang: Language; id: string }>();
   const t = translations[lang as Language] || translations.en;
   const content = getWorkoutContent(lang as Language, id || '');
+  const backText = t.common.backToWorkouts;
+  const backLink = `/${lang}/workouts`;
 
   if (!content) {
-    return <div className="container py-20 text-center">Content not found.</div>;
+    return (
+      <div className="container mx-auto px-4 py-20 text-center">
+        <h1 className="text-4xl font-black mb-4">404</h1>
+        <p className="text-zinc-500 mb-8">Workout not found.</p>
+        <Link to={backLink} className="text-emerald-600 font-bold flex items-center justify-center gap-2">
+          <ArrowLeft className="h-4 w-4" /> {backText}
+        </Link>
+      </div>
+    );
   }
 
   const tocItems = [
-    { id: 'overview', text: lang === 'en' ? 'Overview' : lang === 'es' ? 'Resumen' : 'Visão Geral' },
-    { id: 'workout-plan', text: lang === 'en' ? 'Workout Plan' : lang === 'es' ? 'Plan de Entrenamiento' : 'Plano de Treino' },
-    { id: 'faq', text: lang === 'en' ? 'FAQ' : lang === 'es' ? 'Preguntas Frecuentes' : 'Perguntas Frequentes' },
+    { id: 'overview', text: t.common.overview },
+    { id: 'workout-plan', text: t.common.workoutPlan },
+    { id: 'faq', text: t.common.faqTitle },
   ];
 
   const stats = [
-    { label: lang === 'en' ? 'Difficulty' : lang === 'es' ? 'Dificultad' : 'Dificuldade', value: content.intensity, icon: Zap },
-    { label: lang === 'en' ? 'Duration' : lang === 'es' ? 'Duración' : 'Duração', value: content.duration, icon: Clock },
-    { label: lang === 'en' ? 'Target' : lang === 'es' ? 'Objetivo' : 'Alvo', value: content.muscleGroup, icon: Target },
-    { label: lang === 'en' ? 'Level' : lang === 'es' ? 'Nivel' : 'Nível', value: content.level, icon: Award },
+    { label: t.common.difficulty, value: content.intensity, icon: Zap },
+    { label: t.common.duration, value: content.duration, icon: Clock },
+    { label: t.common.target, value: content.muscleGroup, icon: Target },
+    { label: t.common.level, value: content.level, icon: Award },
   ];
 
   const takeaways = lang === 'en' ? [
@@ -101,16 +114,16 @@ export const WorkoutDetail = () => {
         }}
         sidebar={{
           popularGuides: [
-            { title: lang === 'en' ? 'Best Diet for Muscle Gain' : lang === 'es' ? 'Mejor Dieta para Ganar Músculo' : 'Melhor Dieta para Ganho de Massa', href: `/${lang}/diet-plans/bulking` },
-            { title: lang === 'en' ? 'Creatine Guide' : lang === 'es' ? 'Guía de Creatina' : 'Guia de Creatina', href: `/${lang}/supplements/creatine` },
-            { title: lang === 'en' ? 'Fat Loss Secrets' : lang === 'es' ? 'Secretos de Pérdida de Grasa' : 'Segredos da Perda de Gordura', href: `/${lang}/blog/fat-loss-secrets` },
+            { title: lang === 'en' ? 'Best Diet for Muscle Gain' : lang === 'es' ? 'Mejor Dieta para Ganar Músculo' : 'Melhor Dieta para Ganho de Massa', href: `/${lang}/diet-plans/${getLocalizedSlug('diet-plans', lang as Language, 'muscle-gain')}` },
+            { title: lang === 'en' ? 'Creatine Guide' : lang === 'es' ? 'Guía de Creatina' : 'Guia de Creatina', href: `/${lang}/supplements/${getLocalizedSlug('supplements', lang as Language, 'creatine-monohydrate')}` },
+            { title: lang === 'en' ? 'Fat Loss Secrets' : lang === 'es' ? 'Secretos de Pérdida de Grasa' : 'Segredos da Perda de Gordura', href: `/${lang}/blog/1` },
           ]
         }}
       >
         <div id="overview">
           <div className="aspect-video rounded-3xl overflow-hidden mb-12 bg-zinc-100 shadow-xl shadow-emerald-500/5">
             <img 
-              src={content.heroImage} 
+              src={content.coverImage} 
               alt={content.title} 
               className="w-full h-full object-cover" 
               referrerPolicy="no-referrer" 
@@ -139,7 +152,7 @@ export const WorkoutDetail = () => {
           <KeyTakeaways items={takeaways} />
 
           <div className="article-content">
-            <Markdown components={MarkdownComponents}>{content.body}</Markdown>
+            <Markdown components={MarkdownComponents} rehypePlugins={[rehypeRaw]}>{content.body}</Markdown>
           </div>
         </div>
 
@@ -148,11 +161,11 @@ export const WorkoutDetail = () => {
         <div id="workout-plan">
           <div className="bg-emerald-50 border border-emerald-100 rounded-3xl p-8 mb-12">
             <h2 className="text-2xl font-bold text-emerald-900 mb-4 flex items-center gap-2">
-              <Dumbbell className="h-6 w-6" /> {lang === 'en' ? 'Training Specifications' : lang === 'es' ? 'Especificaciones de Entrenamiento' : 'Especificações de Treino'}
+              <Dumbbell className="h-6 w-6" /> {t.common.trainingSpecs}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h4 className="text-xs font-bold uppercase text-emerald-600 mb-2">Equipment Needed</h4>
+                <h4 className="text-xs font-bold uppercase text-emerald-600 mb-2">{t.common.equipmentNeeded}</h4>
                 <ul className="flex flex-wrap gap-2">
                   {content.equipment.map((item, i) => (
                     <li key={i} className="bg-white px-3 py-1 rounded-full text-xs font-medium text-emerald-800 border border-emerald-200">{item}</li>
@@ -160,7 +173,7 @@ export const WorkoutDetail = () => {
                 </ul>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase text-emerald-600 mb-2">Primary Muscles</h4>
+                <h4 className="text-xs font-bold uppercase text-emerald-600 mb-2">{t.common.primaryMuscles}</h4>
                 <ul className="flex flex-wrap gap-2">
                   {content.primaryMuscles.map((item, i) => (
                     <li key={i} className="bg-white px-3 py-1 rounded-full text-xs font-medium text-emerald-800 border border-emerald-200">{item}</li>
@@ -171,16 +184,16 @@ export const WorkoutDetail = () => {
           </div>
           
           <div className="article-content">
-            <Markdown components={MarkdownComponents}>{content.bodyPart2}</Markdown>
+            <Markdown components={MarkdownComponents} rehypePlugins={[rehypeRaw]}>{content.bodyPart2}</Markdown>
           </div>
         </div>
 
         <div className="my-16 p-8 bg-zinc-900 rounded-3xl text-white text-center">
-          <h3 className="text-2xl font-bold mb-4 !text-white">Ready to Transform Your Physique?</h3>
-          <p className="text-zinc-400 mb-8 max-w-md mx-auto">Get our free 12-week transformation guide and weekly science-based tips delivered to your inbox.</p>
+          <h3 className="text-2xl font-bold mb-4 !text-white">{t.common.readyToTransform}</h3>
+          <p className="text-zinc-400 mb-8 max-w-md mx-auto">{t.common.transformDesc}</p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input type="email" placeholder="Enter your email" className="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-zinc-500 focus:outline-none focus:border-emerald-500" />
-            <button className="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-3 rounded-xl transition-colors">Subscribe</button>
+            <input type="email" placeholder={t.common.enterEmail} className="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-zinc-500 focus:outline-none focus:border-emerald-500" />
+            <button className="bg-emerald-500 hover:bg-emerald-400 text-black font-bold px-8 py-3 rounded-xl transition-colors">{t.common.subscribe}</button>
           </div>
         </div>
 

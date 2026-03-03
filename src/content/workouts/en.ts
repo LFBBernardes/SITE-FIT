@@ -15,7 +15,9 @@ export const enWorkouts: Record<string, WorkoutContent> = {
     intensity: "High",
     duration: "60-75 min",
     muscleGroup: "Chest",
-    heroImage: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=1200',
     body: `
 # The Ultimate Chest Training Bible
 
@@ -40,6 +42,8 @@ The chest is composed of two primary muscles: the **Pectoralis Major** and the *
 2.  **Pectoralis Minor:** A thin, triangular muscle situated beneath the pectoralis major. It helps stabilize the scapula.
 
 The primary function of the chest is **horizontal adduction**—bringing your arms across the midline of your body. To fully develop the chest, you must train it through multiple angles (incline, flat, decline) and resistance profiles (free weights, cables).
+
+<adslot id="workout-chest-mid" />
 
 ## The 8-Minute Chest Warm-Up
 
@@ -139,6 +143,8 @@ Split this volume across two sessions (e.g., Monday and Thursday) to keep intens
 *   **Elbow Path:** Don't flare your elbows out at 90 degrees. Tuck them slightly (around 45-75 degrees) to save your rotator cuffs.
 *   **Breathing:** Inhale on the way down (eccentric), exhale on the way up (concentric).
 
+<adslot id="workout-chest-bottom" />
+
 ## 20-Minute Minimalist Routine
 *   Dumbbell Floor Press: 4 sets of 10-12
 *   Push-ups: 3 sets to failure
@@ -199,7 +205,9 @@ A: 2-3 minutes for heavy compounds, 60-90 seconds for isolation.
     intensity: "High",
     duration: "60-75 min",
     muscleGroup: "Back",
-    heroImage: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&q=80&w=1200',
     body: `
 # The Comprehensive Back Guide
 
@@ -219,6 +227,8 @@ The back is a complex group of muscles:
 2.  **Trapezius (Traps):** Divided into upper, middle, and lower. Responsible for scapular elevation, retraction, and depression.
 3.  **Rhomboids:** Located under the traps, they retract the scapula.
 4.  **Erector Spinae:** The muscles running along the spine, responsible for spinal extension.
+
+<adslot id="workout-back-mid" />
 
 ## The 8-Minute Back Warm-Up
 1.  **Cat-Cow:** 10 reps (spinal mobility).
@@ -314,6 +324,8 @@ Aim for **12-20 sets per week**. The back can handle more volume than the chest 
 *   **Week 3:** Add 1 rep to every set of pull-ups.
 *   **Week 4:** Deload.
 
+<adslot id="workout-back-bottom" />
+
 ## FAQ
 **Q: How do I get wider lats?**
 A: Focus on vertical pulling (pull-ups, pulldowns) and ensuring a full stretch at the top.
@@ -343,7 +355,9 @@ A: Use a suicide grip (thumbless) and focus on pulling with the elbows.
     intensity: "Medium-High",
     duration: "45-60 min",
     muscleGroup: "Shoulders",
-    heroImage: "https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?auto=format&fit=crop&q=80&w=1200',
     body: `
 # The Boulder Shoulder Guide
 
@@ -476,7 +490,9 @@ A: Most people don't need them if they do heavy chest pressing, but they can hel
     intensity: "Medium",
     duration: "30-45 min",
     muscleGroup: "Biceps",
-    heroImage: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=1200',
     body: `
 # The Ultimate Bicep Peak Guide
 
@@ -556,7 +572,9 @@ Everyone wants bigger arms. While the triceps make up more of the arm's mass, th
     intensity: "Medium",
     duration: "30-45 min",
     muscleGroup: "Triceps",
-    heroImage: "https://images.unsplash.com/photo-1530822847156-5df684ec5ee1?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1530822847156-5df684ec5ee1?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1530822847156-5df684ec5ee1?auto=format&fit=crop&q=80&w=1200',
     body: `
 # Triceps Mastery
 
@@ -635,7 +653,9 @@ If you want big arms, you must prioritize triceps. They consist of three heads: 
     intensity: "Very High",
     duration: "75-90 min",
     muscleGroup: "Legs",
-    heroImage: "https://images.unsplash.com/photo-1434608519344-49d77a699e1d?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1434608519344-49d77a699e1d?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1434608519344-49d77a699e1d?auto=format&fit=crop&q=80&w=1200',
     body: `
 # The Leg Day Survival Guide
 
@@ -730,7 +750,9 @@ Leg day is where champions are made. It's the most physically and mentally deman
     intensity: "Medium-High",
     duration: "45-60 min",
     muscleGroup: "Glutes",
-    heroImage: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1200',
     body: `
 # The Ultimate Glute Guide
 
@@ -765,7 +787,9 @@ The glutes are the largest and most powerful muscle group in the body. Beyond ae
     intensity: "Medium",
     duration: "15-20 min",
     muscleGroup: "Abs",
-    heroImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=1200',
     body: `
 # The Core Blueprint
 
@@ -800,7 +824,9 @@ Visible abs require low body fat, but thick, defined abs require training. The c
     intensity: "Medium",
     duration: "30-45 min",
     muscleGroup: "Full Body",
-    heroImage: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
     body: `
 # The Ultimate Home Workout Guide
 
@@ -837,7 +863,9 @@ You don't need a gym to get in shape. With the right intensity and exercise sele
     intensity: "Low-Medium",
     duration: "45-60 min",
     muscleGroup: "Full Body",
-    heroImage: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200',
     body: `
 # The Beginner's Foundation
 
@@ -873,7 +901,9 @@ Welcome to your fitness journey. The goal of the first few months is not to lift
     intensity: "Extreme",
     duration: "75-90 min",
     muscleGroup: "Full Body",
-    heroImage: "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&q=80&w=1200',
     body: `
 # Advanced Training Systems
 

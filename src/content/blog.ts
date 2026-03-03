@@ -9,7 +9,9 @@ export const getBlogContent = (lang: Language, id: string) => {
         author: 'Dr. Mike Jensen',
         date: 'March 10, 2024',
         readTime: '12 min read',
-        heroImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
+        coverImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
         excerpt: 'The definitive guide to muscle hypertrophy timelines, genetic limits, and what to expect in your first year of training.',
         body: `
 ## The Hypertrophy Timeline: What Science Says
@@ -55,6 +57,89 @@ Building a world-class physique takes years, not weeks. Focus on the process, tr
           { question: "Do I need supplements to see results?", answer: "No, supplements are the 'cherry on top.' Focus on real food and hard training first." },
           { question: "What is the best rep range for hypertrophy?", answer: "Research shows that muscle can be built in almost any rep range (5-30), but 8-12 is often the most practical." }
         ]
+      },
+      '2': {
+        title: 'The Truth About Protein: How Much Do You Really Need?',
+        category: 'Nutrition',
+        author: 'Sarah Collins',
+        date: 'March 08, 2024',
+        readTime: '10 min read',
+        coverImage: 'https://images.unsplash.com/photo-1529566652340-2c41a2c3581b?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1529566652340-2c41a2c3581b?auto=format&fit=crop&q=80&w=1200',
+        excerpt: 'Breaking down the 1g per lb rule and looking at recent meta-analyses on protein intake for hypertrophy.',
+        body: `
+## The Protein Obsession: Fact vs. Fiction
+
+In the fitness community, protein is often treated like a magic potion. While it is essential for muscle repair, the amount you actually need might be less than you think.
+
+### The 1g Per Pound Rule
+For decades, the standard advice has been to consume 1 gram of protein per pound of body weight (2.2g/kg). While this is a safe and easy-to-remember target, recent research suggests that the benefits plateau much earlier.
+
+### What the Science Says
+Meta-analyses of dozens of studies have shown that for the vast majority of people, protein intake beyond **1.6g per kilogram of body weight (0.7g/lb)** does not result in additional muscle growth. 
+
+## When You Might Need More
+There are specific scenarios where higher protein intake (up to 2.2g/kg or more) is beneficial:
+1. **Aggressive Caloric Deficit:** Protein helps preserve muscle mass when energy is low.
+2. **High Training Volume:** Elite athletes may require more for recovery.
+3. **Older Trainees:** Anabolic resistance in older adults may necessitate higher protein doses.
+        `,
+        bodyPart2: `
+## Quality Matters
+Not all protein is created equal. Focus on high-quality sources that contain a full profile of essential amino acids:
+- **Animal Sources:** Whey, eggs, chicken, beef, and fish.
+- **Plant Sources:** Soy, quinoa, buckwheat, and combinations of legumes and grains.
+
+### Timing and Distribution
+While total daily intake is most important, spreading your protein across 3-5 meals (20-40g per meal) can help maximize muscle protein synthesis throughout the day.
+
+## Conclusion
+Don't stress about hitting massive protein numbers. Aim for at least 1.6g/kg, focus on whole food sources, and spend the rest of your calories on healthy fats and carbohydrates to fuel your training.
+        `,
+        faqs: [
+          { question: "Is too much protein bad for kidneys?", answer: "For healthy individuals, no. However, those with pre-existing kidney conditions should consult a doctor." },
+          { question: "Can I get enough protein on a vegan diet?", answer: "Yes, but you need to be more strategic with food combinations and may benefit from a plant-based protein powder." }
+        ]
+      },
+      '3': {
+        title: 'Creatine Myths Debunked: Hair Loss, Bloating, and Kidney Health',
+        category: 'Supplements',
+        author: 'Alex Rivera',
+        date: 'March 05, 2024',
+        readTime: '8 min read',
+        coverImage: 'https://images.unsplash.com/photo-1593095194472-50971212eef7?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1593095194472-50971212eef7?auto=format&fit=crop&q=80&w=1200',
+        excerpt: 'Separating bro-science from peer-reviewed research on the world\'s most popular supplement.',
+        body: `
+## The Most Researched Supplement in History
+
+Creatine monohydrate is the gold standard of sports supplements. It is cheap, effective, and safe. Yet, myths about its side effects persist. Let's look at the evidence.
+
+### Myth 1: Creatine Causes Hair Loss
+This myth stems from a single 2009 study on rugby players that showed an increase in DHT (a hormone linked to hair loss). However, this study has never been replicated, and no study has ever directly linked creatine to hair loss.
+
+### Myth 2: Creatine Damages Your Kidneys
+Creatine can slightly increase creatinine levels in the blood, which is a marker used to test kidney function. This can lead to a "false positive" on a blood test, but it does not mean your kidneys are damaged.
+        `,
+        bodyPart2: `
+## The Benefits of Creatine
+Beyond just "looking bigger" due to water retention in the muscles, creatine provides real performance benefits:
+- **Increased ATP Production:** More energy for explosive movements.
+- **Improved Recovery:** Reduced muscle cell damage and inflammation.
+- **Cognitive Benefits:** Emerging research suggests creatine may improve brain function and memory.
+
+### How to Take It
+You don't need a "loading phase." Simply take **3-5 grams of creatine monohydrate daily**. Consistency is more important than timing.
+
+## Conclusion
+Creatine is safe for the vast majority of people. It is one of the few supplements that actually delivers on its promises.
+        `,
+        faqs: [
+          { question: "Do I need to cycle creatine?", answer: "No, there is no evidence that cycling is necessary or beneficial." },
+          { question: "Should I take it with carbs?", answer: "Insulin can help with uptake, but it's not strictly necessary. Just taking it consistently is what matters." }
+        ]
       }
     },
     es: {
@@ -64,7 +149,9 @@ Building a world-class physique takes years, not weeks. Focus on the process, tr
         author: 'Dr. Mike Jensen',
         date: '10 de marzo de 2024',
         readTime: '12 min de lectura',
-        heroImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
+        coverImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
         excerpt: 'La guía definitiva sobre los plazos de la hipertrofia muscular, los límites genéticos y qué esperar en tu primer año de entrenamiento.',
         body: `
 ## El Cronograma de la Hipertrofia: Lo que Dice la Ciencia
@@ -110,6 +197,89 @@ Construir un físico de clase mundial lleva años, no semanas. Concéntrate en e
           { question: "¿Necesito suplementos para ver resultados?", answer: "No, los suplementos son la 'cereza del pastel'. Concéntrate primero en la comida real y el entrenamiento duro." },
           { question: "¿Cuál es el mejor rango de repeticiones para la hipertrofia?", answer: "La investigación muestra que se puede construir músculo en casi cualquier rango de repeticiones (5-30), pero 8-12 suele ser lo más práctico." }
         ]
+      },
+      '2': {
+        title: 'La verdad sobre la proteína: ¿Cuánta necesitas realmente?',
+        category: 'Nutrición',
+        author: 'Sarah Collins',
+        date: '8 de marzo de 2024',
+        readTime: '10 min de lectura',
+        coverImage: 'https://images.unsplash.com/photo-1529566652340-2c41a2c3581b?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1529566652340-2c41a2c3581b?auto=format&fit=crop&q=80&w=1200',
+        excerpt: 'Desglosando la regla de 1g por libra y analizando meta-análisis recientes sobre la ingesta de proteínas para la hipertrofia.',
+        body: `
+## La Obsesión por la Proteína: Realidad vs. Ficción
+
+En la comunidad del fitness, la proteína a menudo se trata como una poción mágica. Si bien es esencial para la reparación muscular, la cantidad que realmente necesitas podría ser menor de lo que piensas.
+
+### La Regla de 1g por Libra
+Durante décadas, el consejo estándar ha sido consumir 1 gramo de proteína por libra de peso corporal (2,2g/kg). Si bien este es un objetivo seguro y fácil de recordar, investigaciones recientes sugieren que los beneficios se estancan mucho antes.
+
+### Lo que Dice la Ciencia
+Meta-análisis de docenas de estudios han demostrado que para la gran mayoría de las personas, la ingesta de proteínas más allá de **1,6g por kilogramo de peso corporal (0,7g/lb)** no resulta en un crecimiento muscular adicional.
+
+## Cuándo podrías necesitar más
+Existen escenarios específicos donde una mayor ingesta de proteínas (hasta 2,2g/kg o más) es beneficiosa:
+1. **Déficit Calórico Agresivo:** La proteína ayuda a preservar la masa muscular cuando la energía es baja.
+2. **Alto Volumen de Entrenamiento:** Los atletas de élite pueden requerir más para la recuperación.
+3. **Personas Mayores:** La resistencia anabólica en adultos mayores puede requerir dosis más altas de proteína.
+        `,
+        bodyPart2: `
+## La Calidad Importa
+No todas las proteínas son iguales. Céntrate en fuentes de alta calidad que contengan un perfil completo de aminoácidos esenciales:
+- **Fuentes Animales:** Suero de leche (whey), huevos, pollo, ternera y pescado.
+- **Fuentes Vegetales:** Soja, quinoa, trigo sarraceno y combinaciones de legumbres y cereales.
+
+### Sincronización y Distribución
+Si bien la ingesta diaria total es lo más importante, distribuir la proteína en 3-5 comidas (20-40g por comida) puede ayudar a maximizar la síntesis de proteína muscular a lo largo del día.
+
+## Conclusión
+No te estreses por alcanzar números masivos de proteínas. Apunta a al menos 1,6g/kg, céntrate en fuentes de alimentos integrales y dedica el resto de tus calorías a grasas saludables y carbohidratos para alimentar tu entrenamiento.
+        `,
+        faqs: [
+          { question: "¿Demasiada proteína es mala para los riñones?", answer: "Para personas sanas, no. Sin embargo, aquellos con condiciones renales preexistentes deben consultar a un médico." },
+          { question: "¿Puedo obtener suficiente proteína con una dieta vegana?", answer: "Sí, pero debes ser más estratégico con las combinaciones de alimentos y podrías beneficiarte de un polvo de proteína de origen vegetal." }
+        ]
+      },
+      '3': {
+        title: 'Mitos de la Creatina Desmentidos: Pérdida de Cabello, Hinchazón y Salud Renal',
+        category: 'Suplementos',
+        author: 'Alex Rivera',
+        date: '5 de marzo de 2024',
+        readTime: '8 min de lectura',
+        coverImage: 'https://images.unsplash.com/photo-1593095194472-50971212eef7?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1593095194472-50971212eef7?auto=format&fit=crop&q=80&w=1200',
+        excerpt: 'Separando la "bro-science" de la investigación revisada por pares sobre el suplemento más popular del mundo.',
+        body: `
+## El Suplemento más Investigado de la Historia
+
+El monohidrato de creatina es el estándar de oro de los suplementos deportivos. Es barato, eficaz y seguro. Sin embargo, persisten los mitos sobre sus efectos secundarios. Veamos la evidencia.
+
+### Mito 1: La Creatina Causa Pérdida de Cabello
+Este mito proviene de un único estudio de 2009 en jugadores de rugby que mostró un aumento en la DHT (una hormona vinculada a la pérdida de cabello). Sin embargo, este estudio nunca ha sido replicado y ningún estudio ha vinculado directamente la creatina con la pérdida de cabello.
+
+### Mito 2: La Creatina Daña tus Riñones
+La creatina puede aumentar ligeramente los niveles de creatinina en la sangre, que es un marcador utilizado para probar la función renal. Esto puede llevar a un "falso positivo" en un análisis de sangre, pero no significa que tus riñones estén dañados.
+        `,
+        bodyPart2: `
+## Los Beneficios de la Creatina
+Más allá de simplemente "verse más grande" debido a la retención de agua en los músculos, la creatina proporciona beneficios reales de rendimiento:
+- **Aumento de la Producción de ATP:** Más energía para movimientos explosivos.
+- **Mejora de la Recuperación:** Reducción del daño celular muscular y la inflamación.
+- **Beneficios Cognitivos:** Investigaciones emergentes sugieren que la creatina puede mejorar la función cerebral y la memoria.
+
+### Cómo Tomarla
+No necesitas una "fase de carga". Simplemente toma **3-5 gramos de monohidrato de creatina al día**. La consistencia es más importante que el momento de la toma.
+
+## Conclusión
+La creatina es segura para la gran mayoría de las personas. Es uno de los pocos suplementos que realmente cumple lo que promete.
+        `,
+        faqs: [
+          { question: "¿Necesito hacer ciclos de creatina?", answer: "No, no hay evidencia de que el ciclado sea necesario o beneficioso." },
+          { question: "¿Debo tomarla con carbohidratos?", answer: "La insulina puede ayudar con la absorción, pero no es estrictamente necesario. Lo que importa es tomarla de manera constante." }
+        ]
       }
     },
     br: {
@@ -119,7 +289,9 @@ Construir un físico de clase mundial lleva años, no semanas. Concéntrate en e
         author: 'Dr. Mike Jensen',
         date: '10 de Março de 2024',
         readTime: '12 min de leitura',
-        heroImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
+        coverImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
         excerpt: 'O guia definitivo sobre os prazos da hipertrofia muscular, limites genéticos e o que esperar no seu primeiro ano de treino.',
         body: `
 ## O Cronograma da Hipertrofia: O que a Ciência Diz
@@ -165,10 +337,93 @@ Construir um físico de classe mundial leva anos, não semanas. Foque no process
           { question: "Preciso de suplementos para ver resultados?", answer: "Não, suplementos são a 'cereja do bolo'. Foque em comida de verdade e treino pesado primeiro." },
           { question: "Qual é a melhor faixa de repetições para hipertrofia?", answer: "Pesquisas mostram que o músculo pode ser construído em quase qualquer faixa de repetições (5-30), mas 8-12 é frequentemente a mais prática." }
         ]
+      },
+      '2': {
+        title: 'A verdade sobre a proteína: quanto você realmente precisa?',
+        category: 'Nutrição',
+        author: 'Sarah Collins',
+        date: '8 de Março de 2024',
+        readTime: '10 min de leitura',
+        coverImage: 'https://images.unsplash.com/photo-1529566652340-2c41a2c3581b?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1529566652340-2c41a2c3581b?auto=format&fit=crop&q=80&w=1200',
+        excerpt: 'Analisando a regra de 1g por libra e olhando para meta-análises recentes sobre a ingestão de proteínas para hipertrofia.',
+        body: `
+## A Obsessão por Proteína: Fato vs. Ficção
+
+Na comunidade fitness, a proteína é frequentemente tratada como uma poção mágica. Embora seja essencial para a reparação muscular, a quantidade que você realmente precisa pode ser menor do que você imagina.
+
+### A Regra de 1g por Libra
+Por décadas, o conselho padrão tem sido consumir 1 grama de proteína por libra de peso corporal (2,2g/kg). Embora este seja um objetivo seguro e fácil de lembrar, pesquisas recentes sugerem que os benefícios estagnam muito antes.
+
+### O que a Ciência Diz
+Meta-análises de dezenas de estudos mostraram que, para a grande maioria das pessoas, a ingestão de proteínas além de **1,6g por quilograma de peso corporal (0,7g/lb)** não resulta em crescimento muscular adicional.
+
+## Quando você pode precisar de mais
+Existem cenários específicos onde uma ingestão maior de proteínas (até 2,2g/kg ou mais) é benéfica:
+1. **Déficit Calórico Agressivo:** A proteína ajuda a preservar a massa muscular quando a energia está baixa.
+2. **Alto Volume de Treino:** Atletas de elite podem exigir mais para a recuperação.
+3. **Pessoas Mais Velhas:** A resistência anabólica em adultos mais velhos pode necessitar de doses mais altas de proteína.
+        `,
+        bodyPart2: `
+## Qualidade Importa
+Nem todas as proteínas são criadas iguais. Foque em fontes de alta qualidade que contenham um perfil completo de aminoácidos essenciais:
+- **Fontes Animais:** Whey protein, ovos, frango, carne bovina e peixe.
+- **Fontes Vegetais:** Soja, quinoa, trigo sarraceno e combinações de leguminosas e cereais.
+
+### Timing e Distribuição
+Embora a ingestão diária total seja o mais importante, distribuir sua proteína em 3-5 refeições (20-40g por refeição) pode ajudar a maximizar a síntese de proteína muscular ao longo do dia.
+
+## Conclusão
+Não se estresse em atingir números massivos de proteína. Mire em pelo menos 1,6g/kg, foque em fontes de alimentos integrais e gaste o resto de suas calorias em gorduras saudáveis e carboidratos para abastecer seu treino.
+        `,
+        faqs: [
+          { question: "Muita proteína faz mal para os rins?", answer: "Para indivíduos saudáveis, não. No entanto, aqueles com condições renais pré-existentes devem consultar um médico." },
+          { question: "Posso obter proteína suficiente em uma dieta vegana?", answer: "Sim, mas você precisa ser mais estratégico com as combinações de alimentos e pode se beneficiar de um suplemento de proteína vegetal." }
+        ]
+      },
+      '3': {
+        title: 'Mitos da Creatina Desmentidos: Queda de Cabelo, Inchaço e Saúde Renal',
+        category: 'Suplementos',
+        author: 'Alex Rivera',
+        date: '5 de Março de 2024',
+        readTime: '8 min de leitura',
+        coverImage: 'https://images.unsplash.com/photo-1593095194472-50971212eef7?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1593095194472-50971212eef7?auto=format&fit=crop&q=80&w=1200',
+        excerpt: 'Separando a "bro-science" da pesquisa revisada por pares sobre o suplemento mais popular do mundo.',
+        body: `
+## O Suplemento Mais Pesquisado da História
+
+O monohidrato de creatina é o padrão ouro dos suplementos esportivos. É barato, eficaz e seguro. No entanto, mitos sobre seus efeitos colaterais persistem. Vamos olhar para as evidências.
+
+### Mito 1: Creatina Causa Queda de Cabelo
+Este mito vem de um único estudo de 2009 com jogadores de rúgbi que mostrou um aumento no DHT (um hormônio ligado à queda de cabelo). No entanto, este estudo nunca foi replicado e nenhum estudo jamais ligou diretamente a creatina à queda de cabelo.
+
+### Mito 2: Creatina Danifica seus Rins
+A creatina pode aumentar ligeiramente os níveis de creatinina no sangue, que é um marcador usado para testar a função renal. Isso pode levar a un "falso positivo" em um exame de sangue, mas não significa que seus rins estejam danificados.
+        `,
+        bodyPart2: `
+## Os Benefícios da Creatina
+Além de apenas "parecer maior" devido à retenção de água nos músculos, a creatina oferece benefícios reais de desempenho:
+- **Aumento da Produção de ATP:** Mais energia para movimentos explosivos.
+- **Melhora da Recuperação:** Redução do dano celular muscular e inflamação.
+- **Benefícios Cognitivos:** Pesquisas emergentes sugerem que a creatina pode melhorar a função cerebral e a memória.
+
+### Como Tomar
+Você não precisa de uma "fase de carga". Simplesmente tome **3-5 gramas de monohidrato de creatina diariamente**. A consistência é mais importante do que o horário.
+
+## Conclusión
+A creatina é segura para a grande maioria das pessoas. É um dos poucos suplementos que realmente entrega o que promete.
+        `,
+        faqs: [
+          { question: "Preciso fazer ciclos de creatina?", answer: "Não, não há evidências de que o ciclo seja necessário ou benéfico." },
+          { question: "Devo tomar com carboidratos?", answer: "A insulina pode ajudar na absorção, mas não é estritamente necessário. Apenas tomar consistentemente é o que importa." }
+        ]
       }
     }
   };
 
   const langContent = translations[lang] || translations.en;
-  return langContent[id] || langContent['1'];
+  return langContent[id] || null;
 };

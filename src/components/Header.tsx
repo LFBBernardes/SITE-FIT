@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Globe, Menu, X } from 'lucide-react';
 import { Language, translations } from '../constants';
 import { cn } from '../utils/cn';
+import { getInternalId, getLocalizedSlug, Section } from '../utils/slugMapping';
 
 export const Header = () => {
   const { lang = 'en' } = useParams<{ lang: Language }>();
@@ -27,6 +28,20 @@ export const Header = () => {
 
   const changeLanguage = (newLang: Language) => {
     const pathParts = location.pathname.split('/');
+    const currentLang = pathParts[1] as Language;
+    
+    // If it's a detail page, we need to map the slug
+    if (pathParts.length >= 4) {
+      const section = pathParts[2] as Section;
+      const currentSlug = pathParts[3];
+      
+      const internalId = getInternalId(section, currentLang, currentSlug);
+      if (internalId) {
+        const newSlug = getLocalizedSlug(section, newLang, internalId);
+        pathParts[3] = newSlug;
+      }
+    }
+    
     pathParts[1] = newLang;
     navigate(pathParts.join('/'));
   };

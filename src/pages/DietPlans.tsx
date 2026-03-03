@@ -7,14 +7,43 @@ export const DietPlans = () => {
   const { lang = 'en' } = useParams<{ lang: Language }>();
   const t = translations[lang as Language] || translations.en;
 
-  const plans = [
-    { kcal: 1200, type: 'Cutting' },
-    { kcal: 1500, type: 'Cutting' },
-    { kcal: 1800, type: 'Maintenance' },
-    { kcal: 2000, type: 'Maintenance' },
-    { kcal: 2500, type: 'Bulking' },
-    { kcal: 3000, type: 'Bulking' },
-  ];
+  const plans = {
+    en: [
+      { slug: '1200-calorie', kcal: 1200, type: 'Cutting', title: '1200 Calorie Plan' },
+      { slug: '1500-calorie', kcal: 1500, type: 'Cutting', title: '1500 Calorie Plan' },
+      { slug: '1800-calorie', kcal: 1800, type: 'Maintenance', title: '1800 Calorie Plan' },
+      { slug: '2000-calorie', kcal: 2000, type: 'Maintenance', title: '2000 Calorie Plan' },
+      { slug: '2500-calorie', kcal: 2500, type: 'Bulking', title: '2500 Calorie Plan' },
+      { slug: 'cutting', kcal: 1600, type: 'Cutting', title: 'Extreme Cutting' },
+      { slug: 'bulking', kcal: 3200, type: 'Bulking', title: 'Massive Bulking' },
+      { slug: 'low-carb', kcal: 1800, type: 'Keto/Low Carb', title: 'Low Carb Strategy' },
+      { slug: 'muscle-gain', kcal: 2800, type: 'Muscle Gain', title: 'Hypertrophy Plan' },
+    ],
+    es: [
+      { slug: '1200-calorias', kcal: 1200, type: 'Definición', title: 'Plan 1200 Calorías' },
+      { slug: '1500-calorias', kcal: 1500, type: 'Definición', title: 'Plan 1500 Calorías' },
+      { slug: '1800-calorias', kcal: 1800, type: 'Mantenimiento', title: 'Plan 1800 Calorías' },
+      { slug: '2000-calorias', kcal: 2000, type: 'Mantenimiento', title: 'Plan 2000 Calorías' },
+      { slug: '2500-calorias', kcal: 2500, type: 'Volumen', title: 'Plan 2500 Calorías' },
+      { slug: 'definicion', kcal: 1600, type: 'Definición', title: 'Definición Extrema' },
+      { slug: 'volumen', kcal: 3200, type: 'Volumen', title: 'Volumen Masivo' },
+      { slug: 'bajo-en-carbohidratos', kcal: 1800, type: 'Keto/Bajo Carb', title: 'Estrategia Bajo Carb' },
+      { slug: 'ganar-musculo', kcal: 2800, type: 'Ganar Músculo', title: 'Plan Hipertrofia' },
+    ],
+    br: [
+      { slug: '1200-calorias', kcal: 1200, type: 'Cutting', title: 'Plano 1200 Calorias' },
+      { slug: '1500-calorias', kcal: 1500, type: 'Cutting', title: 'Plano 1500 Calorias' },
+      { slug: '1800-calorias', kcal: 1800, type: 'Manutenção', title: 'Plano 1800 Calorias' },
+      { slug: '2000-calorias', kcal: 2000, type: 'Manutenção', title: 'Plano 2000 Calorias' },
+      { slug: '2500-calorias', kcal: 2500, type: 'Bulking', title: 'Plano 2500 Calorias' },
+      { slug: 'cutting', kcal: 1600, type: 'Cutting', title: 'Cutting Extremo' },
+      { slug: 'bulking', kcal: 3200, type: 'Bulking', title: 'Bulking Massivo' },
+      { slug: 'low-carb', kcal: 1800, type: 'Keto/Low Carb', title: 'Estratégia Low Carb' },
+      { slug: 'ganho-de-massa', kcal: 2800, type: 'Ganho de Massa', title: 'Plano Hipertrofia' },
+    ],
+  };
+
+  const currentPlans = plans[lang as Language] || plans.en;
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -28,10 +57,10 @@ export const DietPlans = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {plans.map((plan) => (
+        {currentPlans.map((plan) => (
           <Link 
-            key={plan.kcal} 
-            to={`/${lang}/diet-plans/${plan.kcal}`}
+            key={plan.slug} 
+            to={`/${lang}/diet-plans/${plan.slug}`}
             className="group bg-white border border-zinc-200 rounded-3xl p-8 hover:border-black transition-all"
           >
             <div className="flex items-center justify-between mb-6">
@@ -40,7 +69,7 @@ export const DietPlans = () => {
               </div>
               <span className="text-xs font-black uppercase tracking-widest text-zinc-400">{plan.type}</span>
             </div>
-            <h3 className="text-4xl font-black italic mb-2">{plan.kcal} <span className="text-lg not-italic font-bold text-zinc-400">kcal</span></h3>
+            <h3 className="text-3xl font-black italic mb-2">{plan.title}</h3>
             <p className="text-sm text-zinc-500 mb-6">{lang === 'en' ? 'Complete daily meal plan with macro breakdown and food substitutions.' : lang === 'es' ? 'Plan de comidas diario completo con desglose de macros y sustituciones de alimentos.' : 'Plano alimentar diário completo com divisão de macros e substituições de alimentos.'}</p>
             <div className="flex items-center text-sm font-bold gap-1 group-hover:gap-2 transition-all">
               {lang === 'en' ? 'View Plan' : lang === 'es' ? 'Ver Plan' : 'Ver Plano'} <ChevronRight className="h-4 w-4" />

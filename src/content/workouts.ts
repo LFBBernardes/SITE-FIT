@@ -2,6 +2,7 @@ import { Language } from '../constants';
 import { enWorkouts } from './workouts/en';
 import { esWorkouts } from './workouts/es';
 import { brWorkouts } from './workouts/br';
+import { getInternalId } from '../utils/slugMapping';
 
 export interface WorkoutFAQ {
   question: string;
@@ -22,13 +23,15 @@ export interface WorkoutContent {
   intensity: string;
   duration: string;
   muscleGroup: string;
-  heroImage: string;
+  coverImage?: string;
+  coverAlt?: string;
+  ogImage?: string;
   body: string;
   bodyPart2: string;
   faqs: WorkoutFAQ[];
 }
 
-export const getWorkoutContent = (lang: Language, id: string): WorkoutContent | null => {
+export const getWorkoutContent = (lang: Language, slug: string): WorkoutContent | null => {
   const translations: Record<Language, Record<string, WorkoutContent>> = {
     en: enWorkouts,
     es: esWorkouts,
@@ -36,5 +39,11 @@ export const getWorkoutContent = (lang: Language, id: string): WorkoutContent | 
   };
 
   const langContent = translations[lang] || translations.en;
-  return langContent[id] || null;
+  
+  // Find the internal ID for this slug
+  const internalId = getInternalId('workouts', lang, slug);
+  
+  if (!internalId) return null;
+  
+  return langContent[internalId] || null;
 };

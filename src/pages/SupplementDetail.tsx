@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import { HealthDisclaimer } from '../components/HealthDisclaimer';
 import { FAQSection } from '../components/FAQSection';
 import { SEO } from '../components/SEO';
@@ -8,6 +9,7 @@ import { Language, translations } from '../constants';
 import { ArrowLeft, ShieldCheck } from 'lucide-react';
 import { ArticleLayout, AdSlot } from '../components/Article/ArticleLayout';
 import { KeyTakeaways, TableOfContents, ProsCons } from '../components/Article/ArticleComponents';
+import { getLocalizedSlug } from '../utils/slugMapping';
 
 // Mock content fetcher
 import { getSupplementContent } from '../content/supplements';
@@ -22,22 +24,33 @@ const MarkdownComponents = {
   h3: ({ children, ...props }: any) => {
     const id = slugify(children.toString());
     return <h3 id={id} className="group" {...props}>{children}</h3>;
-  }
+  },
+  adslot: ({ id }: any) => <AdSlot id={id} />
 };
 
 export const SupplementDetail = () => {
   const { lang = 'en', id } = useParams<{ lang: Language; id: string }>();
   const t = translations[lang as Language] || translations.en;
   const content = getSupplementContent(lang as Language, id || '');
+  const backText = t.common.backToSupplements;
+  const backLink = `/${lang}/supplements`;
 
   if (!content) {
-    return <div className="container py-20 text-center">Content not found.</div>;
+    return (
+      <div className="container mx-auto px-4 py-20 text-center">
+        <h1 className="text-4xl font-black mb-4">404</h1>
+        <p className="text-zinc-500 mb-8">Supplement guide not found.</p>
+        <Link to={backLink} className="text-emerald-600 font-bold flex items-center justify-center gap-2">
+          <ArrowLeft className="h-4 w-4" /> {backText}
+        </Link>
+      </div>
+    );
   }
 
   const tocItems = [
-    { id: 'overview', text: lang === 'en' ? 'Overview' : lang === 'es' ? 'Resumen' : 'Visão Geral' },
-    { id: 'products', text: lang === 'en' ? 'Products' : lang === 'es' ? 'Productos' : 'Produtos' },
-    { id: 'faq', text: lang === 'en' ? 'FAQ' : lang === 'es' ? 'Preguntas Frecuentes' : 'Perguntas Frequentes' },
+    { id: 'overview', text: t.common.overview },
+    { id: 'products', text: t.common.products },
+    { id: 'faq', text: t.common.faqTitle },
   ];
 
   const takeaways = lang === 'en' ? [
@@ -84,16 +97,16 @@ export const SupplementDetail = () => {
         }}
         sidebar={{
           popularGuides: [
-            { title: lang === 'en' ? 'Whey Protein vs Casein' : lang === 'es' ? 'Proteína de Suero vs Caseína' : 'Whey Protein vs Caseína', href: `/${lang}/blog/whey-vs-casein` },
-            { title: lang === 'en' ? 'Pre-Workout Guide' : lang === 'es' ? 'Guía de Pre-Entrenamiento' : 'Guia de Pré-Treino', href: `/${lang}/blog/pre-workout-guide` },
-            { title: lang === 'en' ? 'Best Multivitamins' : lang === 'es' ? 'Mejores Multivitamínicos' : 'Melhores Multivitamínicos', href: `/${lang}/blog/best-multivitamins` },
+            { title: lang === 'en' ? 'Whey Protein vs Casein' : lang === 'es' ? 'Proteína de Suero vs Caseína' : 'Whey Protein vs Caseína', href: `/${lang}/blog/3` },
+            { title: lang === 'en' ? 'Pre-Workout Guide' : lang === 'es' ? 'Guía de Pre-Entrenamiento' : 'Guia de Pré-Treino', href: `/${lang}/blog/1` },
+            { title: lang === 'en' ? 'Best Multivitamins' : lang === 'es' ? 'Mejores Multivitamínicos' : 'Melhores Multivitamínicos', href: `/${lang}/blog/2` },
           ]
         }}
       >
         <div id="overview">
           <div className="aspect-video rounded-3xl overflow-hidden mb-12 bg-zinc-100 shadow-xl shadow-emerald-500/5">
             <img 
-              src={content.heroImage} 
+              src={content.coverImage} 
               alt={content.title} 
               className="w-full h-full object-cover" 
               referrerPolicy="no-referrer" 
@@ -103,13 +116,6 @@ export const SupplementDetail = () => {
             />
           </div>
 
-          <div className="bg-zinc-50 border border-zinc-100 p-6 rounded-2xl mb-12 flex items-center gap-4">
-            <ShieldCheck className="h-8 w-8 text-emerald-500 flex-shrink-0" />
-            <p className="text-xs text-zinc-500 leading-relaxed">
-              <strong className="text-black uppercase">{t.common.affiliateDisclosureTitle}:</strong> {t.common.affiliateDisclosureDesc}
-            </p>
-          </div>
-
           <HealthDisclaimer />
           
           <TableOfContents items={tocItems} />
@@ -117,7 +123,7 @@ export const SupplementDetail = () => {
           <KeyTakeaways items={takeaways} />
 
           <div className="article-content">
-            <Markdown components={MarkdownComponents}>{content.body}</Markdown>
+            <Markdown components={MarkdownComponents} rehypePlugins={[rehypeRaw]}>{content.body}</Markdown>
           </div>
         </div>
 
@@ -144,7 +150,7 @@ export const SupplementDetail = () => {
           </div>
           
           <div className="article-content mt-12">
-            <Markdown components={MarkdownComponents}>{content.bodyPart2}</Markdown>
+            <Markdown components={MarkdownComponents} rehypePlugins={[rehypeRaw]}>{content.bodyPart2}</Markdown>
           </div>
         </div>
 

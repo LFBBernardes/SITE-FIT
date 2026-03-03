@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Markdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import { HealthDisclaimer } from '../components/HealthDisclaimer';
 import { FAQSection } from '../components/FAQSection';
 import { SEO } from '../components/SEO';
@@ -8,6 +9,7 @@ import { Language, translations } from '../constants';
 import { ArrowLeft } from 'lucide-react';
 import { ArticleLayout, AdSlot } from '../components/Article/ArticleLayout';
 import { KeyTakeaways, TableOfContents } from '../components/Article/ArticleComponents';
+import { getLocalizedSlug } from '../utils/slugMapping';
 
 // Mock content fetcher
 import { getBlogContent } from '../content/blog';
@@ -22,22 +24,33 @@ const MarkdownComponents = {
   h3: ({ children, ...props }: any) => {
     const id = slugify(children.toString());
     return <h3 id={id} className="group" {...props}>{children}</h3>;
-  }
+  },
+  adslot: ({ id }: any) => <AdSlot id={id} />
 };
 
 export const BlogDetail = () => {
   const { lang = 'en', id } = useParams<{ lang: Language; id: string }>();
   const t = translations[lang as Language] || translations.en;
   const content = getBlogContent(lang as Language, id || '');
+  const backText = t.common.backToBlog;
+  const backLink = `/${lang}/blog`;
 
   if (!content) {
-    return <div className="container py-20 text-center">Content not found.</div>;
+    return (
+      <div className="container mx-auto px-4 py-20 text-center">
+        <h1 className="text-4xl font-black mb-4">404</h1>
+        <p className="text-zinc-500 mb-8">Article not found.</p>
+        <Link to={backLink} className="text-emerald-600 font-bold flex items-center justify-center gap-2">
+          <ArrowLeft className="h-4 w-4" /> {backText}
+        </Link>
+      </div>
+    );
   }
 
   const tocItems = [
-    { id: 'overview', text: lang === 'en' ? 'Overview' : lang === 'es' ? 'Resumen' : 'Visão Geral' },
-    { id: 'content', text: lang === 'en' ? 'Deep Dive' : lang === 'es' ? 'Análisis Profundo' : 'Análise Profunda' },
-    { id: 'faq', text: lang === 'en' ? 'FAQ' : lang === 'es' ? 'Preguntas Frecuentes' : 'Perguntas Frequentes' },
+    { id: 'overview', text: t.common.overview },
+    { id: 'content', text: t.common.deepDive },
+    { id: 'faq', text: t.common.faqTitle },
   ];
 
   const takeaways = lang === 'en' ? [
@@ -84,16 +97,16 @@ export const BlogDetail = () => {
         }}
         sidebar={{
           popularGuides: [
-            { title: lang === 'en' ? 'Best Diet for Muscle Gain' : lang === 'es' ? 'Mejor Dieta para Ganar Músculo' : 'Melhor Dieta para Ganho de Massa', href: `/${lang}/diet-plans/bulking` },
-            { title: lang === 'en' ? 'Creatine Guide' : lang === 'es' ? 'Guía de Creatina' : 'Guia de Creatina', href: `/${lang}/supplements/creatine` },
-            { title: lang === 'en' ? 'Full Body Workout' : lang === 'es' ? 'Entrenamiento de Cuerpo Completo' : 'Treino de Corpo Inteiro', href: `/${lang}/workouts/full-body` },
+            { title: lang === 'en' ? 'Best Diet for Muscle Gain' : lang === 'es' ? 'Mejor Dieta para Ganar Músculo' : 'Melhor Dieta para Ganho de Massa', href: `/${lang}/diet-plans/${getLocalizedSlug('diet-plans', lang as Language, 'muscle-gain')}` },
+            { title: lang === 'en' ? 'Creatine Guide' : lang === 'es' ? 'Guía de Creatina' : 'Guia de Creatina', href: `/${lang}/supplements/${getLocalizedSlug('supplements', lang as Language, 'creatine-monohydrate')}` },
+            { title: lang === 'en' ? 'Full Body Workout' : lang === 'es' ? 'Entrenamiento de Cuerpo Completo' : 'Treino de Corpo Inteiro', href: `/${lang}/workouts/${getLocalizedSlug('workouts', lang as Language, 'full-body')}` },
           ]
         }}
       >
         <div id="overview">
           <div className="aspect-video rounded-3xl overflow-hidden mb-12 bg-zinc-100 shadow-xl shadow-emerald-500/5">
             <img 
-              src={content.heroImage} 
+              src={content.coverImage} 
               alt={content.title} 
               className="w-full h-full object-cover" 
               referrerPolicy="no-referrer" 
@@ -110,14 +123,14 @@ export const BlogDetail = () => {
           <KeyTakeaways items={takeaways} />
 
           <div className="article-content">
-            <Markdown components={MarkdownComponents}>{content.body}</Markdown>
+            <Markdown components={MarkdownComponents} rehypePlugins={[rehypeRaw]}>{content.body}</Markdown>
           </div>
         </div>
 
         <AdSlot />
 
         <div id="content" className="article-content">
-          <Markdown components={MarkdownComponents}>{content.bodyPart2}</Markdown>
+          <Markdown components={MarkdownComponents} rehypePlugins={[rehypeRaw]}>{content.bodyPart2}</Markdown>
         </div>
 
         <div id="faq">

@@ -49,9 +49,9 @@ export const ShareButtons = () => {
   );
 };
 
-export const AdSlot = ({ label = "Advertisement", className }: { label?: string; className?: string }) => {
+export const AdSlot = ({ label = "Advertisement", className, id }: { label?: string; className?: string; id?: string }) => {
   return (
-    <div className={cn("my-12 flex flex-col items-center", className)}>
+    <div id={id} className={cn("my-12 flex flex-col items-center", className)}>
       <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-400 mb-3">{label}</span>
       <div className="w-full h-[250px] bg-zinc-50 border border-zinc-100 rounded-xl flex items-center justify-center text-zinc-300 font-mono text-xs italic">
         Ad Placement

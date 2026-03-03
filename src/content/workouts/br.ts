@@ -15,7 +15,9 @@ export const brWorkouts: Record<string, WorkoutContent> = {
     intensity: "Alta",
     duration: "60-75 min",
     muscleGroup: "Peito",
-    heroImage: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=1200',
     body: `
 # A Bíblia Definitiva do Treino de Peito
 
@@ -40,6 +42,8 @@ O peito é composto por dois músculos principais: o **Peitoral Maior** e o **Pe
 2.  **Peitoral Menor:** Um músculo fino e triangular situado abaixo do peitoral maior. Ajuda a estabilizar a escápula.
 
 A função principal do peito é a **adução horizontal**: trazer os braços em direção à linha média do corpo. Para desenvolver totalmente o peito, você deve treiná-lo de múltiplos ângulos (inclinado, reto, declinado) e perfis de resistência (pesos livres, cabos).
+
+<adslot id="workout-chest-mid" />
 
 ## O Aquecimento de Peito de 8 Minutos
 
@@ -114,6 +118,8 @@ Divida este volume em duas sessões (ex: segunda e quinta) para manter a intensi
 *   **Trajetória do Cotovelo:** Não abra os cotovelos a 90 graus. Meta-os ligeiramente (cerca de 45-75 graus) para salvar seus manguitos rotadores.
 *   **Respiração:** Inale ao descer (excêntrico), exale ao subir (concêntrico).
 
+<adslot id="workout-chest-bottom" />
+
 ## Rotina Minimalista de 20 Minutos
 *   Supino no Chão com Halteres: 4 séries de 10-12
 *   Flexões: 3 séries ao máximo
@@ -157,7 +163,9 @@ R: Não. Treinar até a falha com muita frequência esgota seu sistema nervoso. 
     intensity: "Alta",
     duration: "60-75 min",
     muscleGroup: "Costas",
-    heroImage: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&q=80&w=1200',
     body: `
 # Guia Completo de Costas
 
@@ -177,6 +185,8 @@ As costas são um grupo complexo de músculos:
 2.  **Trapézio (Traps):** Dividido em superior, médio e inferior. Responsável pela elevação, retração e depressão escapular.
 3.  **Romboides:** Situados abaixo dos trapézios, retraem a escápula.
 4.  **Eretores da Espinha:** Os músculos que percorrem a coluna, responsáveis pela extensão espinal.
+
+<adslot id="workout-back-mid" />
 
 ## O Aquecimento de Costas de 8 Minutos
 1.  **Cat-Cow:** 10 repetições (mobilidade espinal).
@@ -232,6 +242,8 @@ Mire em **12-20 séries por semana**. As costas podem aguentar mais volume do qu
 *   **Semana 3:** Adicionar 1 repetição a cada série de elevações.
 *   **Semana 4:** Deload (Descarga).
 
+<adslot id="workout-back-bottom" />
+
 ## FAQ
 **P: Como consigo dorsais mais largos?**
 R: Concentre-se na tração vertical (elevações, puxadas) e garanta um alongamento completo no topo.
@@ -261,7 +273,9 @@ R: Use uma pegada suicida (sem o polegar) e concentre-se em puxar com os cotovel
     intensity: "Média-Alta",
     duration: "45-60 min",
     muscleGroup: "Ombros",
-    heroImage: "https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?auto=format&fit=crop&q=80&w=1200',
     body: `
 # Guia de Ombros de Aço
 
@@ -314,7 +328,9 @@ R: Faça muitas elevações laterais. Os cabos costumam ser melhores que os halt
     intensity: "Média",
     duration: "30-45 min",
     muscleGroup: "Bíceps",
-    heroImage: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=1200',
     body: `
 # O Guia Definitivo do Pico de Bíceps
 
@@ -349,7 +365,9 @@ Todo mundo quer braços maiores. Embora os tríceps constituam a maior parte da 
     intensity: "Média",
     duration: "30-45 min",
     muscleGroup: "Tríceps",
-    heroImage: "https://images.unsplash.com/photo-1530822847156-5df684ec5ee1?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1530822847156-5df684ec5ee1?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1530822847156-5df684ec5ee1?auto=format&fit=crop&q=80&w=1200',
     body: `
 # Maestria em Tríceps
 
@@ -384,7 +402,9 @@ Se você quer braços grandes, deve priorizar os tríceps. Eles consistem em tr�
     intensity: "Muito Alta",
     duration: "75-90 min",
     muscleGroup: "Pernas",
-    heroImage: "https://images.unsplash.com/photo-1434608519344-49d77a699e1d?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1434608519344-49d77a699e1d?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1434608519344-49d77a699e1d?auto=format&fit=crop&q=80&w=1200',
     body: `
 # Guia de Sobrevivência do Dia de Perna
 
@@ -421,7 +441,9 @@ O dia de perna é onde os campeões são feitos. É a sessão de treino mais exi
     intensity: "Média-Alta",
     duration: "45-60 min",
     muscleGroup: "Glúteos",
-    heroImage: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1200',
     body: `
 # O Guia Definitivo de Glúteos
 
@@ -456,7 +478,9 @@ Os glúteos são o grupo muscular maior e mais potente do corpo. Além da estét
     intensity: "Média",
     duration: "15-20 min",
     muscleGroup: "Abdominais",
-    heroImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=1200',
     body: `
 # O Plano Mestre do Core
 
@@ -491,7 +515,9 @@ Abdominais visíveis requerem um baixo percentual de gordura corporal, mas abdom
     intensity: "Média",
     duration: "30-45 min",
     muscleGroup: "Corpo Inteiro",
-    heroImage: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200',
     body: `
 # O Guia Definitivo de Treino em Casa
 
@@ -528,7 +554,9 @@ Você não precisa de uma academia para entrar em forma. Com a intensidade adequ
     intensity: "Baixa-Média",
     duration: "45-60 min",
     muscleGroup: "Corpo Inteiro",
-    heroImage: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200',
     body: `
 # A Base do Iniciante
 
@@ -564,7 +592,9 @@ Bem-vindo à sua jornada fitness. O objetivo dos primeiros meses não é levanta
     intensity: "Extrema",
     duration: "75-90 min",
     muscleGroup: "Corpo Inteiro",
-    heroImage: "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&q=80&w=1200",
+    coverImage: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&q=80&w=1200',
+        coverAlt: 'Cover image',
+        ogImage: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&q=80&w=1200',
     body: `
 # Sistemas de Treinamento Avançado
 
